@@ -28,7 +28,7 @@ RUN mkdir -p ${JIRA_HOME}
 
 RUN wget -P /tmp ${DOWNLOAD_URL}
 RUN tar zxf /tmp/atlassian-jira-6.3.15.tar.gz -C /tmp
-RUN mv /tmp/atlassian-jira-6.3.15/* ${JIRA_INSTALL_DIR}/
+RUN mv /tmp/atlassian-jira-6.3.15-standalone/* ${JIRA_INSTALL_DIR}/
 
 # RUN wget -P /tmp http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.34.tar.gz
 # RUN tar zxf /tmp/mysql-connector-java-5.1.34.tar.gz -C /tmp
