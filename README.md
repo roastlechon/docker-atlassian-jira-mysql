@@ -9,7 +9,7 @@ cd /path/to/repo/docker-atlassian-jira-mysql
 sudo docker build -t atlassian-jira .
 
 # Run the docker container
-sudo docker run --name atlassian-jira -p 7999:7999 -v /data/jira:/var/atlassian/application-data/jira -d atlassian-jira /sbin/my_init
+sudo docker run --name atlassian-jira -v /data/jira:/var/atlassian/application-data/jira -d atlassian-jira /sbin/my_init
 ```
 
 * `docker run` - Creates and runs a new Docker container based off an image.
