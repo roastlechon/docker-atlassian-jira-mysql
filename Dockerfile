@@ -23,12 +23,13 @@ RUN apt-get install -y wget git default-jre
 RUN sudo /bin/sh -c 'echo JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/jre/bin/java::") >> /etc/environment'
 RUN sudo /bin/sh -c 'echo JIRA_HOME=${JIRA_HOME} >> /etc/environment'
 
-RUN mkdir -p ${JIRA_INSTALL_DIR}
+RUN mkdir -p /opt/atlassian
 RUN mkdir -p ${JIRA_HOME}
 
 RUN wget -P /tmp ${DOWNLOAD_URL}
 RUN tar zxf /tmp/atlassian-jira-6.3.15.tar.gz -C /tmp
-RUN mv /tmp/atlassian-jira-6.3.15-standalone/* ${JIRA_INSTALL_DIR}/
+RUN mv /tmp/atlassian-jira-6.3.15-standalone /tmp/jira
+RUN mv /tmp/jira /opt/atlassian/
 
 RUN wget -P /tmp http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.34.tar.gz
 RUN tar zxf /tmp/mysql-connector-java-5.1.34.tar.gz -C /tmp
